@@ -1,0 +1,20 @@
+include: 'https://raw.githubusercontent.com/davidk81/my-pay2-shared-ci/main/java-ci.yaml'
+
+# add pre-build stage to default pipeline
+stages:
+  - pre-build
+  - build
+  - test
+  - deploy
+
+# add job for pre-build stage
+pre-build-job:
+  stage: pre-build
+  script:
+    - echo "Hello, $GITLAB_USER_LOGIN!"
+
+# overrides build-job
+build-job:
+  stage: build
+  script:
+    - echo "Hello! I am Sparta!"
